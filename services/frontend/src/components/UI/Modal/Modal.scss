@@ -1,0 +1,41 @@
+@import "../../../scss/_variables.scss";
+
+.modal-component {
+  scale: 1;
+  animation: modal-in 0.5s;
+
+  .card-component {
+    padding: $spacer * 3;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__alert {
+    margin: $spacer 0 $spacer * 3 0;
+  }
+
+  i {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  &__content {
+    margin-top: $spacer * 2;
+  }
+
+  @keyframes modal-in {
+    0% {
+      translate: -50% 10%;
+      scale: 0.5;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+      visibility: visible;
+    }
+  }
+}

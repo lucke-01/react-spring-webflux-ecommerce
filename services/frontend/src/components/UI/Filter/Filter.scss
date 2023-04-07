@@ -1,0 +1,10 @@
+@import "../../../scss/_variables.scss";
+
+.filter-component {
+  display: flex;
+  gap: $spacer * 2;
+
+  &__select {
+    min-width: 125px !important;
+  }
+}

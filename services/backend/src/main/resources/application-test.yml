@@ -1,0 +1,22 @@
+spring:
+  mongodb:
+    embedded:
+      version: 4.0.21
+  data:
+    mongodb:
+      #use programmatically random available to test
+      #port: 28887
+      host: localhost
+  biller:
+    cors-allowed-origin: 'http://localhost:3000/'
+  mail:
+    host: localhost
+    port: 3025
+    username: test
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

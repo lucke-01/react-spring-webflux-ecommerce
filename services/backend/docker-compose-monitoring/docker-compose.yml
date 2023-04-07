@@ -1,0 +1,31 @@
+##tutorial: https://mydeveloperplanet.com/2021/03/03/how-to-monitor-a-spring-boot-app/
+version: "3.1"
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus-dc
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana-dc
+    depends_on:
+      - prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "3001:3000"
+    networks:
+      - monitoring
+networks:
+  monitoring:
+    driver: bridge

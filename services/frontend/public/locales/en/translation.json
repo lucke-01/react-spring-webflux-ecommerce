@@ -1,0 +1,42 @@
+{
+  "menu": {
+    "home": "Home",
+    "users": "Users",
+    "organisations": "Organisations",
+    "mass": "Mass creation",
+    "locations": "Locations",
+    "coupons": "Coupons",
+    "biller": "Biller simulator"
+  },
+  "home": {
+    "title": "Home",
+    "dashboard": "Dashboard",
+    "addEdit": "Add & Edit",
+    "view": "View",
+    "addView": "Add & View"
+  },
+  "users": {
+    "title": "Users",
+    "description": "Create or edit a new User"
+  },
+  "organisations": {
+    "description": "Create or edit a new Organization",
+    "title": "Organisations"
+  },
+  "coupons": {
+    "title": "Coupons",
+    "description": "CRUD of coupons"
+  },
+  "mass": {
+    "description": "Create a mass products",
+    "title": "Mass creation"
+  },
+  "locations": {
+    "description": "View Locations and configuration",
+    "title": "Locations"
+  },
+  "billers": {
+    "description": "This tool is a fee simulator, it does not belong to the final solution and it will be removed in the future. Meanwhile, we can use it to simulate the result of the web.",
+    "title": "Billers"
+  }
+}

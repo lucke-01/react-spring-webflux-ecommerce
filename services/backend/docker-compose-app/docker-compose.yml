@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  biller:
+    build:
+      context: ..
+      dockerfile: ./Dockerfile
+    image: biller
+    hostname: biller
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - ecommerce-network
+networks:
+  ecommerce-network:
+    driver: bridge
+
+volumes:
+  mongodb:
+  mongoconfig:

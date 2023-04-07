@@ -1,0 +1,34 @@
+@import "../../../scss/_variables.scss";
+
+.option-component {
+  flex: 1;
+  min-width: 210px;
+
+  .card-component {
+    display: flex;
+    flex-direction: row;
+    gap: $spacer;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      &--uppercase {
+        text-transform: uppercase;
+        font-size: $font-small;
+        color: $font-light-gray;
+      }
+
+      &--bold {
+        font-weight: bold;
+        font-size: $font-medium;
+      }
+
+      &--icon {
+        font-size: 2em;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Swagger Car Park Biller - OpenAPI 3.0
+  description: |-
+    This is the Car Park Biller API based on the OpenAPI 3.0 specification.
+  version: 1.0.0
+servers:
+  - url: '{protocol}://localhost:8080/api/'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+    description: Localhost
+  - url: '{protocol}://ecommerce.ricardocreates.com/api/'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+    description: Dev
+tags:
+  - name: administrator
+    description: administrator
+  - name: coupon
+    description: coupon
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: [ ]
+paths:
+  ############ ADMINISTRATOR #############
+  /administrator/{id}:
+    $ref: 'administrator/administrator-api.yaml#/paths/~1administrator~1{id}'
+  /administrator:
+    $ref: 'administrator/administrator-api.yaml#/paths/~1administrator'
+  /administrator/login:
+    $ref: 'administrator/administrator-api.yaml#/paths/~1administrator~1login'
+  /administrator/send-forgot-password:
+    $ref: 'administrator/administrator-api.yaml#/paths/~1administrator~1send-forgot-password'
+  /administrator/restore-password:
+    $ref: 'administrator/administrator-api.yaml#/paths/~1administrator~1restore-password'
+
+  ############ COUPON #############
+  /coupon:
+    $ref: 'coupon/coupon-api.yaml#/paths/~1coupon'
+  /coupon/{id}:
+    $ref: 'coupon/coupon-api.yaml#/paths/~1coupon~1{id}'

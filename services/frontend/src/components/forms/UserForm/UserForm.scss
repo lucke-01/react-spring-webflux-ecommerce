@@ -1,0 +1,15 @@
+@import "../../../scss/_variables.scss";
+
+.user-form {
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: $spacer * 3 $spacer * 5;
+    margin-bottom: $spacer * 3;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacer * 3;
+  }
+}

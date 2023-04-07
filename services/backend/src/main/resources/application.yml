@@ -1,0 +1,63 @@
+app:
+  options:
+    initializeDataDirectory: "classpath:/db-init/*.json"
+    #indicates if data should be initialized
+    initializeData: true
+spring:
+  application:
+    name: Ecommerce
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  data:
+    mongodb:
+      database: ecommerce
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: userMail
+    password: passwordMail
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+springbootwebfluxjjwt:
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+    expiration: 86400000
+  password.encoder:
+    secret: mysecret
+    iteration: 33
+    keylength: 256
+management:
+  info:
+    env:
+      enabled: true
+  health:
+    enabled: true
+    #example to not check some service in 'actuator/health'
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      #show all details of services in 'actuator/health'
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: info, health, *
+info:
+  app:
+    name: biller
+    description: Biller
+    encoding: @project.build.sourceEncoding@
+    java:
+      version: @java.version@
+server:
+  forward-headers-strategy: framework
+logging:
+  level:
+    org:
+      springframework: INFO

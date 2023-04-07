@@ -1,0 +1,25 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+  biller:
+    cors-allowed-origin: ${CORS_ALLOWED_ORIGIN}
+  mail:
+    host: localhost
+    port: 3030
+    username: test
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG

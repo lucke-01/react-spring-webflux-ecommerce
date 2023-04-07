@@ -1,0 +1,29 @@
+@import "../../../scss/_variables.scss";
+
+.coupon-form {
+  &__buttons {
+    margin-top: $spacer * 3;
+  }
+}
+.long-description-form-item {
+  margin-bottom: $spacer * 3;
+}
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  gap: $spacer * 3 $spacer * 5;
+  margin-bottom: $spacer * 3;
+}
+.spaced-form .MuiFormControl-root {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.locations-products {
+  margin: 1em;
+}
+.list-element {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-column-gap: 10px;
+  width: 100%;
+}

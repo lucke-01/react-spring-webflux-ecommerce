@@ -1,0 +1,181 @@
+paths:
+  /coupon:
+    get:
+      tags:
+        - coupon
+      summary: Get all coupons
+      description: Get all coupons
+      operationId: findCoupon
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CouponDto'
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - coupon
+      summary: Update a coupon
+      description: Update a coupon
+      operationId: updateCoupon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CouponDto'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponDto'
+        '404':
+          description: Not found
+        '405':
+          description: Invalid input
+    post:
+      tags:
+        - coupon
+      summary: Creates a new coupon
+      description: Adds a new coupon
+      operationId: addCoupon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CouponDto'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponDto'
+        '405':
+          description: Invalid input
+  /coupon/{id}:
+    get:
+      tags:
+        - coupon
+      summary: Get a coupon by id
+      description: Get a coupon by id
+      operationId: getCoupon
+      parameters:
+        - name: id
+          in: path
+          description: id coupon
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponDto'
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - coupon
+      summary: Remove a coupon
+      description: Remove a coupon
+      operationId: removeCoupon
+      parameters:
+        - name: id
+          in: path
+          description: id coupon
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Invalid input
+        '405':
+          description: Invalid input
+components:
+  schemas:
+    CouponDto:
+      type: object
+      required:
+        - name
+        - code
+        - active
+        - activeFrom
+        - activeTo
+        - discount
+        - discountType
+        - dayOfWeek
+        - shortDescription
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          minLength: 1
+        code:
+          type: string
+          minLength: 1
+        active:
+          type: boolean
+        activeFrom:
+          type: string
+          format: time
+          example: "2022-09-13T06:00:000Z"
+        activeTo:
+          type: string
+          format: time
+          example: "2022-09-13T06:00:000Z"
+        discount:
+          type: number
+          minimum: 0
+        discountType:
+          type: string
+          enum: [ PERCENT, AMOUNT ]
+        dayOfWeek:
+          $ref: '#/components/schemas/DayOfWeekDto'
+        shortDescription:
+          type: string
+        locationProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationProductDto'
+    DayOfWeekDto:
+      type: object
+      properties:
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sunday:
+          type: boolean
+    LocationProductDto:
+      type: object
+      properties:
+        idLocation:
+          type: string
+        idProducts:
+          type: array
+          items:
+            type: string
+        allProducts:
+          type: boolean

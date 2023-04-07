@@ -1,0 +1,12 @@
+@import "../../../scss/_variables.scss";
+
+.checkbox-component {
+  input {
+    margin-right: $spacer;
+    height: 15px;
+    width: 15px;
+  }
+
+  display: flex;
+  align-items: center;
+}

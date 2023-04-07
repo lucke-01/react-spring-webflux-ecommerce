@@ -1,0 +1,58 @@
+@import "../../../scss/_variables.scss";
+
+.confirmation-component {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  translate: -50% -50%;
+  scale: 1;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+
+  .card-component {
+    padding: $spacer * 3;
+    text-align: center;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    animation: modal-in 0.5s;
+  }
+
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: $spacer * 3;
+    gap: $spacer * 2;
+  }
+
+  @keyframes modal-in {
+    0% {
+      translate: -50% 10%;
+      scale: 0.5;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+      visibility: visible;
+    }
+  }
+}

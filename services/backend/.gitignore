@@ -1,0 +1,32 @@
+# Maven
+*target*
+log/
+
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.mvn
+
+# Package Files
+*.war
+*.ear
+*.class
+*node_modules*
+**/src/main/frontend/dist/**
+*.gitkeep
+
+#open api generates
+generated/open-api-merge/

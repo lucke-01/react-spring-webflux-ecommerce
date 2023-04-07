@@ -1,0 +1,24 @@
+@import "../../scss/_variables.scss";
+
+.layout-screen {
+  display: grid;
+  grid-template-columns: auto 5fr;
+
+  &__content {
+    min-height: 100vh;
+    background-color: $background-gray;
+
+    &--top {
+      background-color: $white;
+      text-align: right;
+      padding: $spacer * 2;
+      border-bottom: 1px solid $border-light-gray;
+    }
+  }
+}
+.logout {
+  cursor: pointer;
+}
+.logout:hover {
+  color: $orange;
+}

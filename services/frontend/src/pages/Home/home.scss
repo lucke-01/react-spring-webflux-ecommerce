@@ -1,0 +1,17 @@
+@import "../../scss/_variables.scss";
+
+.home-screen {
+  height: 100%;
+
+  &__description {
+    font-size: $font-small;
+    color: $font-light-gray;
+    margin-bottom: 0;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: $font-medium;
+    margin-bottom: $spacer * 4;
+  }
+}

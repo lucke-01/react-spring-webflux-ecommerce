@@ -1,0 +1,41 @@
+@import "./scss/_variables.scss";
+
+textarea { resize: vertical; }
+
+.button-accept {
+    background-color: $button-bg-primary;
+}
+
+.button-cancel {
+    background-color: $gray;
+}
+.form-label {
+    color: $gray;
+    display: block;
+}
+.text-error-helper {
+    color: $form-error-text-color;
+    font-size: 0.75rem;
+    margin-left: 14px;
+}
+.input-invalid {
+    border-color: red;
+}
+.margin-top-1 {
+    margin-top: 1em;
+}
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 10px;
+    width: 100%;
+}
+.clicable {
+    cursor: pointer; 
+}
+.icon-disable {
+    color: $gray;
+}
+.icon-add {
+    color: $button-bg-primary;
+}

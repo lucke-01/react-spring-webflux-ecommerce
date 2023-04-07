@@ -1,0 +1,17 @@
+version: "3.1"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_dev
+    environment:
+      - MONGO_INITDB_DATABASE=ecommerce
+    ports:
+      - "27017:27017"
+    networks:
+      - ecommerce-network
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+networks:
+  ecommerce-network:
+    driver: bridge

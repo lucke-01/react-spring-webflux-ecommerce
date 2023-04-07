@@ -1,0 +1,25 @@
+@import "../../../scss/_variables.scss";
+
+.accordion-component {
+  transition: all 250ms;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  i {
+    font-size: 1.2em;
+    transition: transform 350ms;
+
+    &.rotate {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__content {
+    margin-top: $spacer * 3;
+  }
+}

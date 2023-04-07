@@ -1,0 +1,27 @@
+@import "../../../scss/_variables.scss";
+
+.MuiTableContainer-root {
+  .MuiTableCell-head {
+    font-size: $font-small !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+
+  .MuiTableCell-body {
+    &.MuiTableCell-body {
+      line-height: 1.6 !important;
+      font-size: $font-family !important;
+    }
+  }
+
+  .MuiTableRow-hover {
+    &:hover {
+      background-color: #e7f5f5 !important;
+    }
+  }
+
+  .MuiTableBody-root > tr:last-child > td {
+    border-bottom: none;
+  }
+}

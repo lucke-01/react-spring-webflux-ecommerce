@@ -1,0 +1,31 @@
+@import "../../scss/_variables.scss";
+
+.users-screen {
+  &__description {
+    font-size: $font-small;
+    color: $font-light-gray;
+    margin-bottom: 0;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: $font-medium;
+    margin-bottom: $spacer * 4;
+  }
+
+  &__alert {
+    margin-bottom: $spacer * 3;
+  }
+
+  &__card {
+    &--actions-bar {
+      display: flex;
+      gap: $spacer * 2;
+      margin-bottom: $spacer * 3;
+    }
+  }
+
+  .card-component {
+    margin-bottom: $spacer * 3;
+  }
+}

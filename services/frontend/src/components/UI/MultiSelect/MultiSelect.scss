@@ -1,0 +1,11 @@
+@import "../../../scss/_variables.scss";
+
+.MuiFormControl-root {
+  label,
+  li {
+    font-family: $font-family;
+  }
+}
+.multiselect-helper-text {
+  color: $form-error-text-color !important;
+}

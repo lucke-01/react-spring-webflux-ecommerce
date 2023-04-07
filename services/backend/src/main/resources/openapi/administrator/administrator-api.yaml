@@ -1,0 +1,271 @@
+paths:
+  /administrator:
+    get:
+      tags:
+        - administrator
+      summary: Get all administrator
+      description: Get all administrator
+      operationId: findAdministrator
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdministratorDto'
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - administrator
+      summary: Update a administrator
+      description: Update a administrator to the CMS
+      operationId: updateAdministrator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAdministratorDto'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorDto'
+        '404':
+          description: Not found
+        '405':
+          description: Invalid input
+    post:
+      tags:
+        - administrator
+      summary: Creates a new administrator
+      description: Add a new administrator to the CMS
+      operationId: addAdministrator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdministratorDto'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorDto'
+        '405':
+          description: Invalid input
+  /administrator/login:
+    post:
+      tags:
+        - administrator
+      summary: Login GRS
+      description: Login to enter to new GRS
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequestDto'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponseDto'
+        '405':
+          description: Invalid input
+  /administrator/{id}:
+    get:
+      tags:
+        - administrator
+      summary: Get a administrator
+      description: Get a new administrator to CMS
+      operationId: getAdministrator
+      parameters:
+        - name: id
+          in: path
+          description: id administrator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorDto'
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - administrator
+      summary: Remove a administrator
+      description: Remove a administrator to the CMS
+      operationId: removeAdministrator
+      parameters:
+        - name: id
+          in: path
+          description: id administrator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Invalid input
+        '405':
+          description: Invalid input
+
+  /administrator/send-forgot-password:
+    post:
+      security: [ ]
+      tags:
+        - administrator
+      summary: sends link to email to restore password
+      description: sends link to email to restore password
+      operationId: sendForgotPassword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendForgotPasswordDto'
+      responses:
+        '200':
+          description: Successful operation
+        '405':
+          description: Invalid input
+  /administrator/restore-password:
+    post:
+      security: [ ]
+      tags:
+        - administrator
+      summary: restore user's password setting a new one
+      description: restore user's password setting a new one
+      operationId: restorePassword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestorePasswordDto'
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: login or userToken does not match
+        '405':
+          description: Invalid input
+        '500':
+          description: service unable
+
+components:
+  schemas:
+    LoginRequestDto:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+          example: ricardo
+        password:
+          type: string
+          example: password
+    LoginResponseDto:
+      type: object
+      properties:
+        login:
+          type: string
+          example: ricardo
+        token:
+          type: string
+          example: adadad213123asdasda
+        role:
+          type: string
+          example: ROLE_ADMIN
+    AdministratorDto:
+      type: object
+      required:
+        - login
+        - password
+        - email
+      properties:
+        id:
+          type: string
+        login:
+          type: string
+          minLength: 1
+          example: ricardo
+        password:
+          type: string
+          minLength: 1
+          example: password
+        role:
+          type: string
+          enum: [ ADMIN, ADMIN_READ_ONLY, MANAGEMENT ]
+        email:
+          type: string
+          minLength: 1
+          format: email
+        lastLogin:
+          type: string
+          format: time
+          example: "2022-09-13T06:00:000Z"
+    UpdateAdministratorDto:
+      type: object
+      properties:
+        id:
+          type: string
+        login:
+          type: string
+          minLength: 1
+          example: ricardo
+        password:
+          type: string
+          minLength: 1
+          example: password
+        role:
+          type: string
+          enum: [ ADMIN, ADMIN_READ_ONLY, MANAGEMENT ]
+        email:
+          type: string
+          minLength: 1
+          format: email
+    SendForgotPasswordDto:
+      type: object
+      required:
+        - email
+      properties:
+        email:
+          type: string
+          minLength: 1
+          format: email
+    RestorePasswordDto:
+      type: object
+      required:
+        - login
+        - newPassword
+        - passwordToken
+      properties:
+        login:
+          type: string
+          minLength: 1
+        newPassword:
+          type: string
+          minLength: 1
+        passwordToken:
+          type: string
+          minLength: 1

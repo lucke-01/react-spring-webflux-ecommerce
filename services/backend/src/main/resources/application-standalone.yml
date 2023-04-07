@@ -1,0 +1,33 @@
+server.port: 8080
+
+app:
+  options:
+    initializeDataDirectory: "classpath:/db-init/*.json"
+    #indicates if data should be initialized
+    initializeData: true
+spring:
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+  biller:
+    cors-allowed-origin: 'http://localhost:3000/'
+  mail:
+    host: localhost
+    port: 3030
+    username: test
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG

@@ -1,0 +1,47 @@
+@import "../../../scss/_variables.scss";
+
+.loader-component {
+  display: flex;
+  justify-content: center;
+  margin: $spacer * 15 0;
+
+  .ring {
+    --uib-size: 35px;
+    --uib-speed: 2s;
+
+    height: var(--uib-size);
+    width: var(--uib-size);
+    vertical-align: middle;
+    transform-origin: center;
+    animation: rotate var(--uib-speed) linear infinite;
+  }
+
+  .ring circle {
+    fill: none;
+    stroke: $button-bg-primary;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: stretch calc(var(--uib-speed) * 0.75) ease-in-out infinite;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes stretch {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dashoffset: -124px;
+    }
+  }
+}

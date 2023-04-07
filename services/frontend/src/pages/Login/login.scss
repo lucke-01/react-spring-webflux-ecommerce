@@ -1,0 +1,35 @@
+@import "../../scss/_variables.scss";
+
+.login-screen {
+  margin: 150px auto 0;
+  max-width: 1440px;
+  width: 60%;
+
+  &__logo {
+    text-align: center;
+    border-bottom: 1px solid $border-light-gray;
+
+    img {
+      margin-bottom: $spacer * 2;
+    }
+  }
+
+  &__login {
+    text-align: center;
+    margin: $spacer * 4 auto 0;
+    width: 330px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $spacer * 3;
+    }
+
+    &--buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: $spacer 0 $spacer * 5 0;
+    }
+  }
+}

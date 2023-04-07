@@ -1,0 +1,30 @@
+server.port: 8080
+
+spring:
+  data:
+    mongodb:
+      database: ecommerce
+      port: 27017
+      #name of mongodb container
+      host: mongodb
+  biller:
+    cors-allowed-origin: 'http://localhost:3000/'
+  mail:
+    host: localhost
+    port: 3030
+    username: test
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG
